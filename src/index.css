@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #1A202C;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background-color: #D9822B;
+    color: #ffffff;
+  }
+}
+
+/* Custom subtle glass and parchment gradients */
+.bg-parchment-pattern {
+  background-color: #FAF8F5;
+  background-image: radial-gradient(#0B2545 0.5px, transparent 0.5px), radial-gradient(#D9822B 0.5px, #FAF8F5 0.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  background-opacity: 0.03;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(217, 130, 43, 0.08) 0%, rgba(11, 37, 69, 0.03) 60%, transparent 100%);
+}
+
+.card-heritage {
+  background: #FFFFFF;
+  border: 1px solid rgba(11, 37, 69, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(11, 37, 69, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-heritage:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -4px rgba(11, 37, 69, 0.12);
+  border-color: rgba(217, 130, 43, 0.3);
+}
+
+/* Subtle gold border glow */
+.gold-border-glow {
+  border: 1px solid rgba(217, 130, 43, 0.3);
+  box-shadow: 0 0 15px rgba(217, 130, 43, 0.12);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B254533;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0B254566;
+}
+
+/* Animated pulse rings */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
