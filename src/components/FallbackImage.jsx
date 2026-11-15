@@ -12,6 +12,13 @@ export default function FallbackImage({
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
+  // Resolve base path for GitHub Pages subfolder deployment
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  const resolvedSrc = (src && src.startsWith('/') && !src.startsWith('//'))
+    ? `${cleanBase}${src}`
+    : src;
+
   // If source is missing or marked errored
   if (!src || error) {
     return (
@@ -39,7 +46,7 @@ export default function FallbackImage({
         </div>
       )}
       <img
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         loading={priority ? "eager" : "lazy"}
         onLoad={() => setLoaded(true)}

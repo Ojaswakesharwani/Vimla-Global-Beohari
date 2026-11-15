@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+*.local
+scraped/
+inspect*.js
+check_img.cjs
+verify_server.cjs
+fetch_all.js
+site.html
